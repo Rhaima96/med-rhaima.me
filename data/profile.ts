@@ -106,8 +106,8 @@ export const projects: Project[] = [
       'Firebase, paiement Flouci, zones de livraison, notifications push, tableau de bord temps réel',
     ],
     stack: ['Flutter', 'Laravel', 'Next.js', 'Firebase', 'MySQL', 'Codemagic', 'GitHub Actions'],
-    url: 'https://app.flync.pro',
-    urlLabel: 'app.flync.pro',
+    url: 'https://flync.pro',
+    urlLabel: 'flync.pro',
   },
   {
     name: 'Jasmin Emballage',
