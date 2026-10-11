@@ -241,7 +241,7 @@ def build(lang, path):
         H("LANGUAGES")
         P("French: fluent | English: professional working proficiency | Arabic: native")
 
-    titles = {"fr": "CV — Mohamed Touhami Rhaima", "en": "Résumé — Mohamed Touhami Rhaima"}
+    titles = {"fr": "CV — Mohamed Touhami Rhaima", "en": "CV — Mohamed Touhami Rhaima"}
     SimpleDocTemplate(str(path), pagesize=A4, leftMargin=18 * mm, rightMargin=18 * mm, topMargin=15 * mm, bottomMargin=14 * mm,
                       title=titles[lang], author="Mohamed Touhami Rhaima").build(out)
 

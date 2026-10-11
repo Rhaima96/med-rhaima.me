@@ -13,7 +13,7 @@ export const en: Content = {
   description:
     'Senior Full-Stack Laravel / Vue.js developer with 6+ years of experience and a Laravel framework contributor (MariaDB vector search). CRM, LMS, e-commerce, ride-hailing, Flutter apps.',
   jobTitle: 'Senior Full-Stack Developer, Laravel / Vue.js',
-  cv: { href: '/CV_Mohamed_Touhami_Rhaima_EN.pdf', title: 'Full résumé', detail: 'PDF, 2 pages', short: 'Résumé (PDF)' },
+  cv: { href: '/CV_Mohamed_Touhami_Rhaima_EN.pdf', title: 'Full CV', detail: 'PDF, 2 pages', short: 'CV (PDF)' },
 
   ui: {
     newTab: '(opens in a new tab)',
