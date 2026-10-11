@@ -19,7 +19,7 @@ const nameLines = ['Mohamed', 'Touhami', 'Rhaima']
 
         <h1 class="mt-5 font-display text-[clamp(3.4rem,10.5vw,7.4rem)] font-bold leading-[0.88] tracking-[-0.045em]">
           <span v-for="(line, i) in nameLines" :key="line" class="block overflow-hidden pb-[0.06em]">
-            <span class="hero-line block" :style="{ '--i': i }">{{ line }}</span>
+            <span class="hero-line block" :style="{ '--i': i }">{{ i < nameLines.length - 1 ? `${line} ` : line }}</span>
           </span>
         </h1>
 
