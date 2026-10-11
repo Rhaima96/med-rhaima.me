@@ -54,19 +54,23 @@ Le site est 100 % statique (`npm run generate` → `.output/public`). Le workflo
 
 (ajoutez des enregistrements `AAAA` si le VPS a une IPv6).
 
-**2. Sur le VPS** (`deploy` = l'utilisateur SSH qui recevra les fichiers) :
+**2. Sur le VPS** (Apache). `deploy` est un utilisateur sans sudo qui ne peut écrire que dans le dossier du site :
 
 ```bash
+sudo adduser --disabled-password --gecos "" deploy
 sudo mkdir -p /var/www/med-rhaima.me
 sudo chown deploy:deploy /var/www/med-rhaima.me
+sudo -u deploy mkdir -p -m 700 /home/deploy/.ssh
 
-# Config Nginx fournie dans deploy/nginx.conf
-sudo nano /etc/nginx/sites-available/med-rhaima.me      # coller le contenu
-sudo ln -s /etc/nginx/sites-available/med-rhaima.me /etc/nginx/sites-enabled/
-sudo nginx -t && sudo systemctl reload nginx
+# Config Apache fournie dans deploy/apache.conf
+sudo curl -fsSL https://raw.githubusercontent.com/Rhaima96/med-rhaima.me/main/deploy/apache.conf \
+  -o /etc/apache2/sites-available/med-rhaima.me.conf
+sudo a2enmod headers expires deflate
+sudo a2ensite med-rhaima.me
+sudo apache2ctl configtest && sudo systemctl reload apache2
 
-# HTTPS (une fois le DNS propagé)
-sudo certbot --nginx -d med-rhaima.me -d www.med-rhaima.me --redirect
+# HTTPS (une fois le DNS propagé : dig +short med-rhaima.me)
+sudo certbot --apache -d med-rhaima.me -d www.med-rhaima.me --redirect
 ```
 
 **3. Clé de déploiement** (sur votre Mac) :
@@ -96,10 +100,6 @@ Variables facultatives (onglet *Variables*) : `VPS_PORT` (22 par défaut), `VPS_
 npm run generate
 rsync -az --delete .output/public/ deploy@IP_DU_VPS:/var/www/med-rhaima.me/
 ```
-
-### Apache au lieu de Nginx
-
-Un `VirtualHost` avec `DocumentRoot /var/www/med-rhaima.me`, `ErrorDocument 404 /404.html`, puis `certbot --apache -d med-rhaima.me -d www.med-rhaima.me`.
 
 ### Après la mise en ligne
 
