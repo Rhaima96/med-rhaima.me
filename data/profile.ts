@@ -103,10 +103,10 @@ export const projects: Project[] = [
       'Une plateforme complète de livraison de repas : trois applications mobiles, un backend et un tableau de bord, du code jusqu’aux stores.',
     points: [
       '3 applications Flutter (client, restaurant, livreur) publiées sur l’App Store et Google Play',
-      'Backend Laravel et frontend Next.js en production, CI/CD automatisée (Codemagic, GitHub Actions)',
+      'Backend Laravel en production, CI/CD automatisée (Codemagic, GitHub Actions)',
       'Firebase, paiement Flouci, zones de livraison, notifications push, tableau de bord temps réel',
     ],
-    stack: ['Flutter', 'Laravel', 'Next.js', 'Firebase', 'MySQL', 'Codemagic', 'GitHub Actions'],
+    stack: ['Flutter', 'Laravel', 'Firebase', 'MySQL', 'Codemagic', 'GitHub Actions'],
     url: 'https://flync.pro',
     urlLabel: 'flync.pro',
     // Store listings published under the developer name Mohamed Rhaima.

@@ -63,12 +63,7 @@ const [featured, ...others] = projects
           <div class="mx-auto h-8 w-px bg-gradient-to-b from-petrol-line to-date/70" aria-hidden="true" />
           <div class="rounded-xl border border-date/40 bg-date/[0.06] px-4 py-3 text-center">
             <span class="font-display font-semibold">Backend Laravel</span>
-            <span class="block text-xs text-sand-dim">Firebase, paiement Flouci, zones de livraison, notifications push</span>
-          </div>
-          <div class="mx-auto h-8 w-px bg-petrol-line" aria-hidden="true" />
-          <div class="rounded-xl border border-petrol-line px-4 py-3 text-center">
-            <span class="font-display font-semibold">Frontend Next.js</span>
-            <span class="block text-xs text-sand-dim">Tableau de bord temps réel</span>
+            <span class="block text-xs text-sand-dim">Firebase, paiement Flouci, zones de livraison, notifications push, tableau de bord temps réel</span>
           </div>
         </div>
       </div>
