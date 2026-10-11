@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { vectorPoints } from '~/data/profile'
+import { vectorPoints } from '~/data/shared'
+
+const c = useContent()
 
 // Skills laid out as 2D vectors. The pointer (or the arrow keys) sets a query vector;
 // the three nearest skills by cosine distance light up, like a vector search would.
@@ -82,7 +84,7 @@ const fmt = (n: number) => n.toFixed(3)
       class="vf w-full select-none outline-none [touch-action:pan-y]"
       tabindex="0"
       role="img"
-      aria-label="Champ vectoriel de compétences. Utilisez les flèches pour orienter la requête ; les trois compétences les plus proches par distance cosinus sont listées sous le schéma."
+      :aria-label="c.hero.fieldAria"
       @pointermove="aim"
       @pointerenter="hold"
       @pointerdown="hold"
@@ -122,7 +124,7 @@ const fmt = (n: number) => n.toFixed(3)
 
     <figcaption class="mt-4 rounded-xl border border-petrol-line bg-petrol-deep/70 p-4 text-sm">
       <code class="block font-mono text-[0.8rem] text-sand-dim">
-        whereVectorSimilarTo(<span class="text-date-soft">'competences'</span>, $requete)
+        whereVectorSimilarTo(<span class="text-date-soft">'{{ c.hero.fieldTable }}'</span>, {{ c.hero.fieldVar }})
       </code>
       <ol class="mt-3 space-y-1.5 font-mono text-[0.8rem]">
         <li v-for="(p, n) in ranked" :key="p.i" class="flex items-baseline gap-3">

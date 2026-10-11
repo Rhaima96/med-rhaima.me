@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import { skills } from '~/data/profile'
+const c = useContent()
 </script>
 
 <template>
-  <section id="competences" class="section" aria-labelledby="competences-titre">
-    <h2 id="competences-titre" v-reveal class="section-title">Compétences</h2>
-    <p v-reveal="80" class="section-lead">
-      Laravel et Vue.js au centre, avec les bases de données, le mobile et l’outillage qui vont avec une plateforme en production.
-    </p>
+  <section id="skills" class="section" aria-labelledby="skills-title">
+    <h2 id="skills-title" v-reveal class="section-title">{{ c.skills.title }}</h2>
+    <p v-reveal="80" class="section-lead">{{ c.skills.lead }}</p>
 
     <ul class="mt-14 border-b border-petrol-line/70">
       <li
-        v-for="(g, i) in skills"
+        v-for="(g, i) in c.skills.groups"
         :key="g.name"
         v-reveal="i * 50"
         class="group grid gap-3 border-t border-petrol-line/70 py-6 md:grid-cols-[14rem_1fr] md:gap-10"

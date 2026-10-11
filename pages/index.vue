@@ -1,11 +1,3 @@
 <template>
-  <div>
-    <HeroSection />
-    <AboutSection />
-    <SkillsSection />
-    <ProjectsSection />
-    <ExperienceSection />
-    <OpenSourceSection />
-    <ContactSection />
-  </div>
+  <HomePage />
 </template>

@@ -4,9 +4,21 @@ Portfolio de Mohamed Touhami Rhaima. Nuxt 3, TypeScript, Tailwind CSS, généré
 
 ## Modifier le contenu
 
-Tout le contenu est dans **`data/profile.ts`** : identité, à propos, compétences, projets, expériences, contributions Laravel, packages, et les points du champ vectoriel du hero. Les composants ne contiennent pas de texte métier à part les titres de section.
+Le site existe en français (`/`, langue par défaut) et en anglais (`/en/`).
 
-Le CV téléchargeable est `public/CV_Mohamed_Touhami_Rhaima_FR.pdf`. Remplacez le fichier en gardant le même nom, ou changez `site.cv` dans `data/profile.ts`.
+- **`data/i18n/fr.ts`** et **`data/i18n/en.ts`** : tout le texte d'une langue (titres, paragraphes, projets, expériences, boutons, libellés d'accessibilité, SEO). Les deux fichiers ont la même forme, imposée par le type `Content` de `data/types.ts` : si une clé manque dans une langue, `npm run typecheck` le signale.
+- **`data/shared.ts`** : ce qui ne change pas avec la langue (identité, liens, stacks, liens des stores, PR Laravel, packages, points du champ vectoriel).
+
+### CV
+
+Les deux CV sont générés par `cv/build.py` (Python + ReportLab) :
+
+```bash
+pip install reportlab
+python3 cv/build.py   # écrit public/CV_Mohamed_Touhami_Rhaima_FR.pdf et _EN.pdf
+```
+
+Le bouton CV de chaque page télécharge le PDF de sa langue.
 
 ## Développement
 
@@ -23,7 +35,12 @@ Node 20 ou plus récent.
 ## Structure
 
 ```
-data/profile.ts         contenu du site (source unique)
+data/i18n/{fr,en}.ts    contenu de chaque langue
+data/shared.ts          données communes aux deux langues
+pages/index.vue         page française (/)
+pages/en/index.vue      page anglaise (/en/)
+components/HomePage     sections + SEO par langue (hreflang, Open Graph, JSON-LD)
+cv/build.py             génération des CV PDF FR et EN
 components/             sections (Hero, About, Skills, Projects, Experience, OpenSource, Contact), header, footer
 components/VectorField  le champ vectoriel interactif du hero
 composables/useNav.ts   navigation et section active
@@ -34,10 +51,9 @@ public/                 favicon, og.png, robots.txt, sitemap.xml, CV
 
 ## SEO
 
-- Titre, description, Open Graph et Twitter Card dans `nuxt.config.ts`
-- Données structurées `ProfilePage` + `Person` (JSON-LD) dans `app.vue`
-- `public/sitemap.xml` et `public/robots.txt` (une seule page : mettre à jour `lastmod` après une grosse modification)
-- Image de partage `public/og.png` (1200 × 630)
+- Titre, description, Open Graph, Twitter Card, `hreflang` et JSON-LD par langue dans `components/HomePage.vue`
+- `public/sitemap.xml` (les deux langues avec leurs alternates) et `public/robots.txt` : mettre à jour `lastmod` après une grosse modification
+- Images de partage `public/og.png` (FR) et `public/og-en.png` (EN), 1200 × 630
 
 ## Déploiement sur med-rhaima.me (VPS)
 

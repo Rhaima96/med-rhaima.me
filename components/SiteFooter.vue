@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { person } from '~/data/profile'
+import { person } from '~/data/shared'
+const c = useContent()
 const year = 2026 // ponytail: static so prerendered HTML never drifts from hydration; bump yearly
 </script>
 
@@ -10,15 +11,15 @@ const year = 2026 // ponytail: static so prerendered HTML never drifts from hydr
         <SiteMark class="h-10 w-10" />
         <div>
           <p class="font-display text-lg font-semibold">{{ person.name }}</p>
-          <p class="text-sm text-sand-faint">Conçu et développé à Gabès, avec Nuxt et Tailwind CSS.</p>
+          <p class="text-sm text-sand-faint">{{ c.footer.tagline }}</p>
         </div>
       </div>
-      <nav aria-label="Navigation du pied de page">
+      <nav :aria-label="c.ui.footerNavLabel">
         <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-sand-dim">
-          <li v-for="item in navItems" :key="item.id">
+          <li v-for="item in navItems(c)" :key="item.id">
             <a :href="`#${item.id}`" class="transition-colors hover:text-sand">{{ item.label }}</a>
           </li>
-          <li><a href="#haut" class="transition-colors hover:text-sand">Haut de page</a></li>
+          <li><a href="#top" class="transition-colors hover:text-sand">{{ c.ui.backToTop }}</a></li>
         </ul>
       </nav>
     </div>

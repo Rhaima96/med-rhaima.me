@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import { ArrowUpRight } from 'lucide-vue-next'
-import { projects } from '~/data/profile'
-
-const [featured, ...others] = projects
+const c = useContent()
+const featured = computed(() => c.value.projects.items[0]!)
+const others = computed(() => c.value.projects.items.slice(1))
 </script>
 
 <template>
-  <section id="projets" class="section" aria-labelledby="projets-titre">
-    <h2 id="projets-titre" v-reveal class="section-title">Projets sélectionnés</h2>
-    <p v-reveal="80" class="section-lead">
-      Un produit personnel en production, et trois plateformes livrées pour des clients français avec itSolve.
-    </p>
+  <section id="projects" class="section" aria-labelledby="projects-title">
+    <h2 id="projects-title" v-reveal class="section-title">{{ c.projects.title }}</h2>
+    <p v-reveal="80" class="section-lead">{{ c.projects.lead }}</p>
 
     <!-- Featured: Flync -->
     <SpotlightCard v-reveal class="mt-14">
@@ -25,18 +23,18 @@ const [featured, ...others] = projects
               {{ pt }}
             </li>
           </ul>
-          <ul class="mt-7 flex flex-wrap gap-2" aria-label="Technologies">
+          <ul class="mt-7 flex flex-wrap gap-2" :aria-label="c.ui.technologies">
             <li v-for="t in featured.stack" :key="t" class="chip">{{ t }}</li>
           </ul>
           <a v-if="featured.url" :href="featured.url" target="_blank" rel="noopener" class="link mt-8 inline-flex items-center gap-1.5 font-medium">
             {{ featured.urlLabel }}
             <ArrowUpRight class="h-4 w-4" aria-hidden="true" />
-            <span class="sr-only">(nouvel onglet)</span>
+            <span class="sr-only">{{ c.ui.newTab }}</span>
           </a>
         </div>
 
         <!-- Architecture as described in the CV: three apps, one backend. -->
-        <div class="flex flex-col justify-center" aria-label="Architecture de Flync">
+        <div class="flex flex-col justify-center" :aria-label="c.projects.architectureLabel">
           <div class="grid grid-cols-3 gap-2 sm:gap-3">
             <div
               v-for="app in featured.apps"
@@ -55,15 +53,15 @@ const [featured, ...others] = projects
                   rel="noopener"
                   class="whitespace-nowrap rounded-full bg-sand/10 px-1.5 py-1.5 text-[0.66rem] leading-none text-sand transition-colors hover:bg-date hover:text-petrol-deep"
                 >
-                  {{ store.name }}<span class="sr-only">, application Flync {{ app.name }} (nouvel onglet)</span>
+                  {{ store.name }}<span class="sr-only">, {{ c.projects.appLabel }} {{ app.name }} {{ c.ui.newTab }}</span>
                 </a>
               </span>
             </div>
           </div>
           <div class="mx-auto h-8 w-px bg-gradient-to-b from-petrol-line to-date/70" aria-hidden="true" />
           <div class="rounded-xl border border-date/40 bg-date/[0.06] px-4 py-3 text-center">
-            <span class="font-display font-semibold">Backend Laravel</span>
-            <span class="block text-xs text-sand-dim">Firebase, paiement Flouci, zones de livraison, notifications push, tableau de bord temps réel</span>
+            <span class="font-display font-semibold">{{ c.projects.backendTitle }}</span>
+            <span class="block text-xs text-sand-dim">{{ c.projects.backendDetail }}</span>
           </div>
         </div>
       </div>
@@ -93,13 +91,13 @@ const [featured, ...others] = projects
           </ul>
 
           <div class="mt-auto pt-7">
-            <ul class="flex flex-wrap gap-1.5" aria-label="Technologies">
+            <ul class="flex flex-wrap gap-1.5" :aria-label="c.ui.technologies">
               <li v-for="t in p.stack" :key="t" class="chip px-2.5 py-0.5 text-xs">{{ t }}</li>
             </ul>
             <a v-if="p.url" :href="p.url" target="_blank" rel="noopener" class="link mt-6 inline-flex items-center gap-1.5 text-sm font-medium">
               {{ p.urlLabel }}
               <ArrowUpRight class="h-4 w-4" aria-hidden="true" />
-              <span class="sr-only">(nouvel onglet)</span>
+              <span class="sr-only">{{ c.ui.newTab }}</span>
             </a>
           </div>
         </div>

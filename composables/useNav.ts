@@ -1,11 +1,12 @@
-export const navItems = [
-  { id: 'a-propos', label: 'À propos' },
-  { id: 'competences', label: 'Compétences' },
-  { id: 'projets', label: 'Projets' },
-  { id: 'parcours', label: 'Parcours' },
-  { id: 'open-source', label: 'Open source' },
-  { id: 'contact', label: 'Contact' },
-] as const
+import type { Content } from '~/data/types'
+
+// Section anchors are language-neutral so links work the same on / and /en/.
+const sections = ['about', 'skills', 'projects', 'experience', 'open-source', 'contact'] as const
+const labelKey = { about: 'about', skills: 'skills', projects: 'projects', experience: 'experience', 'open-source': 'openSource', contact: 'contact' } as const
+
+export function navItems(c: Content) {
+  return sections.map((id) => ({ id, label: c.nav[labelKey[id]] }))
+}
 
 /** Id of the section currently in the middle band of the viewport. */
 export function useActiveSection() {
@@ -17,7 +18,7 @@ export function useActiveSection() {
       },
       { rootMargin: '-45% 0px -50% 0px' },
     )
-    for (const { id } of navItems) {
+    for (const id of sections) {
       const el = document.getElementById(id)
       if (el) observer.observe(el)
     }
