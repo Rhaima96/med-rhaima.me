@@ -4,7 +4,7 @@ import { contents } from '~/composables/useContent'
 
 const c = useContent()
 const items = computed(() => navItems(c.value))
-const other = computed(() => contents[c.value.locale === 'fr' ? 'en' : 'fr'])
+const languages = [contents.fr, contents.en]
 const active = useActiveSection()
 const open = ref(false)
 const scrolled = ref(false)
@@ -52,16 +52,24 @@ watch(open, (v) => {
       </ul>
 
       <div class="flex items-center gap-2">
-        <!-- Plain link: a full load gives the other language its own <html lang> and head. -->
-        <a
-          :href="other.path"
-          :hreflang="other.htmlLang"
-          :lang="other.htmlLang"
-          :aria-label="c.ui.switchAria"
-          class="inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-sm font-semibold tracking-wide text-sand-dim transition-colors hover:bg-petrol-raised hover:text-sand"
-        >
-          {{ c.ui.switchLabel }}
-        </a>
+        <!-- Plain links: a full load gives each language its own <html lang> and head. -->
+        <ul class="flex items-center rounded-full border border-petrol-line p-0.5 text-xs font-semibold" :aria-label="c.ui.languageLabel">
+          <li v-for="l in languages" :key="l.locale">
+            <span
+              v-if="l.locale === c.locale"
+              class="inline-flex h-8 min-w-9 items-center justify-center rounded-full bg-sand px-2.5 text-petrol-deep"
+              aria-current="true"
+            >{{ l.locale.toUpperCase() }}</span>
+            <a
+              v-else
+              :href="l.path"
+              :hreflang="l.htmlLang"
+              :lang="l.htmlLang"
+              :aria-label="c.ui.switchAria"
+              class="inline-flex h-8 min-w-9 items-center justify-center rounded-full px-2.5 text-sand-dim transition-colors hover:text-sand"
+            >{{ l.locale.toUpperCase() }}</a>
+          </li>
+        </ul>
         <a
           :href="c.cv.href"
           download

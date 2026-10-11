@@ -63,7 +63,7 @@ export interface Content {
     menuOpen: string
     menuClose: string
     backToTop: string
-    switchLabel: string
+    languageLabel: string
     switchAria: string
     technologies: string
   }

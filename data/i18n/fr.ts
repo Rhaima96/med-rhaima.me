@@ -23,7 +23,7 @@ export const fr: Content = {
     menuOpen: 'Ouvrir le menu',
     menuClose: 'Fermer le menu',
     backToTop: 'Haut de page',
-    switchLabel: 'EN',
+    languageLabel: 'Langue',
     switchAria: 'Read this page in English',
     technologies: 'Technologies',
   },
