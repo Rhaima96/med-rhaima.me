@@ -39,46 +39,67 @@ public/                 favicon, og.png, robots.txt, sitemap.xml, CV
 - `public/sitemap.xml` et `public/robots.txt` (une seule page : mettre à jour `lastmod` après une grosse modification)
 - Image de partage `public/og.png` (1200 × 630)
 
-## Déploiement sur med-rhaima.me
+## Déploiement sur med-rhaima.me (VPS)
 
-Le site est 100 % statique : commande de build `npm run generate`, dossier de sortie `.output/public`.
+Le site est 100 % statique (`npm run generate` → `.output/public`). Le workflow `.github/workflows/deploy.yml` le reconstruit et le synchronise sur le VPS par rsync/SSH à chaque push sur `main`.
 
-### Option recommandée : Cloudflare Pages (gratuit)
+### Mise en place (une seule fois)
 
-1. Poussez ce dossier sur un dépôt GitHub (par exemple `Rhaima96/med-rhaima.me`).
-2. Cloudflare Dashboard → Workers & Pages → Create → Pages → Connect to Git → choisissez le dépôt.
-3. Réglages de build :
-   - Framework preset : **Nuxt.js**
-   - Build command : `npm run generate`
-   - Build output directory : `.output/public`
-   - Variable d'environnement : `NODE_VERSION` = `22`
-4. Une fois déployé : onglet **Custom domains** → ajoutez `med-rhaima.me`, puis `www.med-rhaima.me`.
-5. DNS :
-   - Si le domaine est géré par Cloudflare, les enregistrements sont créés automatiquement.
-   - Sinon, chez votre registrar : soit vous passez les nameservers sur Cloudflare (le plus simple pour un domaine racine), soit vous ajoutez un `CNAME www → <projet>.pages.dev` et une redirection de `med-rhaima.me` vers `www`.
-6. Le HTTPS est activé automatiquement. Chaque `git push` redéploie le site.
+**1. DNS** chez le registrar du domaine :
 
-### Vercel ou Netlify
+| Type | Nom | Valeur |
+|------|-----|--------|
+| A | `@` | IP du VPS |
+| A | `www` | IP du VPS |
 
-Mêmes réglages : build `npm run generate`, sortie `.output/public`. Ajoutez le domaine dans les paramètres du projet et suivez les enregistrements DNS indiqués (A `76.76.21.21` pour Vercel sur le domaine racine, CNAME pour `www`).
+(ajoutez des enregistrements `AAAA` si le VPS a une IPv6).
 
-### Votre propre VPS (Nginx)
+**2. Sur le VPS** (`deploy` = l'utilisateur SSH qui recevra les fichiers) :
+
+```bash
+sudo mkdir -p /var/www/med-rhaima.me
+sudo chown deploy:deploy /var/www/med-rhaima.me
+
+# Config Nginx fournie dans deploy/nginx.conf
+sudo nano /etc/nginx/sites-available/med-rhaima.me      # coller le contenu
+sudo ln -s /etc/nginx/sites-available/med-rhaima.me /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl reload nginx
+
+# HTTPS (une fois le DNS propagé)
+sudo certbot --nginx -d med-rhaima.me -d www.med-rhaima.me --redirect
+```
+
+**3. Clé de déploiement** (sur votre Mac) :
+
+```bash
+ssh-keygen -t ed25519 -f ~/.ssh/med-rhaima-deploy -N "" -C "github-actions med-rhaima.me"
+ssh-copy-id -i ~/.ssh/med-rhaima-deploy.pub deploy@IP_DU_VPS
+ssh-keyscan IP_DU_VPS        # pour VPS_KNOWN_HOSTS (ajoutez -p PORT si SSH n'est pas sur 22)
+```
+
+**4. Secrets GitHub** : dépôt → Settings → Secrets and variables → Actions.
+
+| Secret | Valeur |
+|--------|--------|
+| `VPS_HOST` | IP du VPS |
+| `VPS_USER` | `deploy` |
+| `VPS_SSH_KEY` | contenu de `~/.ssh/med-rhaima-deploy` (clé privée) |
+| `VPS_KNOWN_HOSTS` | sortie de `ssh-keyscan` |
+
+Variables facultatives (onglet *Variables*) : `VPS_PORT` (22 par défaut), `VPS_PATH` (`/var/www/med-rhaima.me` par défaut).
+
+**5. Premier déploiement** : Actions → Deploy → *Run workflow*, ou un simple `git push`.
+
+### Déploiement manuel (sans GitHub Actions)
 
 ```bash
 npm run generate
-rsync -avz --delete .output/public/ user@serveur:/var/www/med-rhaima.me/
+rsync -az --delete .output/public/ deploy@IP_DU_VPS:/var/www/med-rhaima.me/
 ```
 
-```nginx
-server {
-    server_name med-rhaima.me www.med-rhaima.me;
-    root /var/www/med-rhaima.me;
-    location / { try_files $uri $uri/ /index.html; }
-    location /_nuxt/ { expires 1y; add_header Cache-Control "public, immutable"; }
-}
-```
+### Apache au lieu de Nginx
 
-Puis `certbot --nginx -d med-rhaima.me -d www.med-rhaima.me` pour le HTTPS, et un enregistrement DNS `A` vers l'IP du serveur.
+Un `VirtualHost` avec `DocumentRoot /var/www/med-rhaima.me`, `ErrorDocument 404 /404.html`, puis `certbot --apache -d med-rhaima.me -d www.med-rhaima.me`.
 
 ### Après la mise en ligne
 
