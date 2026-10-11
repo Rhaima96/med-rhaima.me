@@ -3,7 +3,6 @@ import { ArrowUpRight } from 'lucide-vue-next'
 import { projects } from '~/data/profile'
 
 const [featured, ...others] = projects
-const flyncApps = ['Client', 'Restaurant', 'Livreur']
 </script>
 
 <template>
@@ -40,13 +39,25 @@ const flyncApps = ['Client', 'Restaurant', 'Livreur']
         <div class="flex flex-col justify-center" aria-label="Architecture de Flync">
           <div class="grid grid-cols-3 gap-2 sm:gap-3">
             <div
-              v-for="app in flyncApps"
-              :key="app"
-              class="flex aspect-[9/16] max-h-56 flex-col items-center justify-end rounded-[1.4rem] border border-petrol-line bg-petrol-deep/80 p-3 pb-4 text-center"
+              v-for="app in featured.apps"
+              :key="app.name"
+              class="flex aspect-[9/16] max-h-60 flex-col items-center justify-end rounded-[1.4rem] border border-petrol-line bg-petrol-deep/80 p-2 pb-3 text-center sm:p-3"
             >
-              <span class="mb-auto mt-1 h-1 w-8 rounded-full bg-petrol-line" aria-hidden="true" />
-              <span class="font-display text-sm font-semibold sm:text-base">{{ app }}</span>
+              <span class="mb-auto mt-1.5 h-1 w-8 rounded-full bg-petrol-line" aria-hidden="true" />
+              <span class="font-display text-sm font-semibold sm:text-base">{{ app.name }}</span>
               <span class="text-xs text-sand-faint">Flutter</span>
+              <span class="mt-3 flex w-full flex-col gap-1.5">
+                <a
+                  v-for="store in [{ name: 'App Store', url: app.ios }, { name: 'Google Play', url: app.android }]"
+                  :key="store.url"
+                  :href="store.url"
+                  target="_blank"
+                  rel="noopener"
+                  class="whitespace-nowrap rounded-full bg-sand/10 px-1.5 py-1.5 text-[0.66rem] leading-none text-sand transition-colors hover:bg-date hover:text-petrol-deep"
+                >
+                  {{ store.name }}<span class="sr-only">, application Flync {{ app.name }} (nouvel onglet)</span>
+                </a>
+              </span>
             </div>
           </div>
           <div class="mx-auto h-8 w-px bg-gradient-to-b from-petrol-line to-date/70" aria-hidden="true" />

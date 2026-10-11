@@ -92,6 +92,7 @@ export interface Project {
   stack: string[]
   url?: string
   urlLabel?: string
+  apps?: { name: string; ios: string; android: string }[]
 }
 
 export const projects: Project[] = [
@@ -108,6 +109,12 @@ export const projects: Project[] = [
     stack: ['Flutter', 'Laravel', 'Next.js', 'Firebase', 'MySQL', 'Codemagic', 'GitHub Actions'],
     url: 'https://flync.pro',
     urlLabel: 'flync.pro',
+    // Store listings published under the developer name Mohamed Rhaima.
+    apps: [
+      { name: 'Client', ios: 'https://apps.apple.com/app/id6769872928', android: 'https://play.google.com/store/apps/details?id=com.flync.user' },
+      { name: 'Restaurant', ios: 'https://apps.apple.com/app/id6769869937', android: 'https://play.google.com/store/apps/details?id=com.flync.restau' },
+      { name: 'Livreur', ios: 'https://apps.apple.com/app/id6769912654', android: 'https://play.google.com/store/apps/details?id=com.flync.delivery' },
+    ],
   },
   {
     name: 'Jasmin Emballage',
