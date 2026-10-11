@@ -77,7 +77,12 @@ sudo certbot --apache -d med-rhaima.me -d www.med-rhaima.me --redirect
 
 ```bash
 ssh-keygen -t ed25519 -f ~/.ssh/med-rhaima-deploy -N "" -C "github-actions med-rhaima.me"
-ssh-copy-id -i ~/.ssh/med-rhaima-deploy.pub deploy@IP_DU_VPS
+
+# deploy n'a pas de mot de passe : on installe la clé publique via le compte ubuntu
+cat ~/.ssh/med-rhaima-deploy.pub | ssh -t ubuntu@IP_DU_VPS \
+  "sudo -u deploy tee -a /home/deploy/.ssh/authorized_keys >/dev/null && sudo chmod 600 /home/deploy/.ssh/authorized_keys"
+
+ssh -i ~/.ssh/med-rhaima-deploy deploy@IP_DU_VPS 'echo ok'   # test
 ssh-keyscan IP_DU_VPS        # pour VPS_KNOWN_HOSTS (ajoutez -p PORT si SSH n'est pas sur 22)
 ```
 
