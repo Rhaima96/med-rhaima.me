@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://med-rhaima.me/</loc>
-    <lastmod>2026-10-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://med-rhaima.me/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://med-rhaima.me/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://med-rhaima.me/"/>
-  </url>
-  <url>
-    <loc>https://med-rhaima.me/en/</loc>
-    <lastmod>2026-10-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://med-rhaima.me/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://med-rhaima.me/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://med-rhaima.me/"/>
-  </url>
+<!-- FR/EN alternates are declared with hreflang in each page's <head>. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://med-rhaima.me/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://med-rhaima.me/en/</loc><lastmod>2026-10-11</lastmod></url>
 </urlset>

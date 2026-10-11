@@ -52,7 +52,7 @@ public/                 favicon, og.png, robots.txt, sitemap.xml, CV
 ## SEO
 
 - Titre, description, Open Graph, Twitter Card, `hreflang` et JSON-LD par langue dans `components/HomePage.vue`
-- `public/sitemap.xml` (les deux langues avec leurs alternates) et `public/robots.txt` : mettre à jour `lastmod` après une grosse modification
+- `public/sitemap.xml` (les deux langues ; les alternates FR/EN sont dans le `hreflang` de chaque page) et `public/robots.txt` : mettre à jour `lastmod` après une grosse modification
 - Images de partage `public/og.png` (FR) et `public/og-en.png` (EN), 1200 × 630
 
 ## Déploiement sur med-rhaima.me (VPS)
