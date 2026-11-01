@@ -11,14 +11,7 @@ Le site existe en français (`/`, langue par défaut) et en anglais (`/en/`).
 
 ### CV
 
-Les deux CV sont générés par `cv/build.py` (Python + ReportLab) :
-
-```bash
-pip install reportlab
-python3 cv/build.py   # écrit public/CV_Mohamed_Touhami_Rhaima_FR.pdf et _EN.pdf
-```
-
-Le bouton CV de chaque page télécharge le PDF de sa langue.
+Les CV sont tenus à jour hors du dépôt (LibreOffice) et publiés tels quels : remplacez `public/CV_Mohamed_Touhami_Rhaima_FR.pdf` et `public/CV_Mohamed_Touhami_Rhaima_EN.pdf` en gardant ces noms. Le bouton CV de chaque page télécharge le PDF de sa langue.
 
 ## Développement
 
@@ -40,7 +33,6 @@ data/shared.ts          données communes aux deux langues
 pages/index.vue         page française (/)
 pages/en/index.vue      page anglaise (/en/)
 components/HomePage     sections + SEO par langue (hreflang, Open Graph, JSON-LD)
-cv/build.py             génération des CV PDF FR et EN
 components/             sections (Hero, About, Skills, Projects, Experience, OpenSource, Contact), header, footer
 components/VectorField  le champ vectoriel interactif du hero
 composables/useNav.ts   navigation et section active

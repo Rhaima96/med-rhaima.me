@@ -11,7 +11,7 @@ export const en: Content = {
   ogImage: '/og-en.png',
   title: 'Mohamed Touhami Rhaima — Senior Full-Stack Developer, Laravel / Vue.js',
   description:
-    'Senior Full-Stack Laravel / Vue.js developer with 6+ years of experience and a Laravel framework contributor (MariaDB vector search). CRM, LMS, e-commerce, ride-hailing, Flutter apps.',
+    'Senior Full-Stack Laravel / Vue.js developer with 6+ years of experience, Laravel framework contributor (MariaDB vector search) and AI integrations (MCP, RAG). CRM, LMS, e-commerce, ride-hailing, Flutter apps.',
   jobTitle: 'Senior Full-Stack Developer, Laravel / Vue.js',
   cv: { href: '/CV_Mohamed_Touhami_Rhaima_EN.pdf', title: 'Full CV', detail: 'PDF, 2 pages', short: 'CV (PDF)' },
 
@@ -47,9 +47,9 @@ export const en: Content = {
   about: {
     title: 'Six years of shipping business platforms',
     paragraphs: [
-      'I design scalable architectures and complex business platforms: multi-tenant CRM, LMS, e-commerce, ride-hailing. I take part in every stage, from requirements analysis and technical choices to development, optimization and deployment.',
-      'Since 2022 I have worked remotely with French clients and international teams, including two years as Team Lead of a team of four developers.',
-      'In 2026 I added MariaDB support to Laravel’s vector search and extended its CI to recent MariaDB releases. I also build applied AI features (RAG, MCP servers) and use Claude Code and Cursor to make code review, testing and documentation more reliable.',
+      'I build business platforms, CRM, LMS, e-commerce, ride-hailing, from requirements to production.',
+      'Today I build AI features for a multi-tenant CRM handling millions of customer records: the MCP server that exposes its data to AI agents, and a Flutter assistant app that answers managers’ business questions in natural language.',
+      'In 2026 I added MariaDB support to Laravel’s vector search and extended its CI to recent MariaDB releases. Since 2022 I have also worked remotely for French clients, including two years as Team Lead of a team of four developers.',
     ],
     highlights: [
       { value: '6+', label: 'years of experience' },
@@ -58,39 +58,38 @@ export const en: Content = {
     ],
     languagesTitle: 'Languages',
     languages: [
+      { name: 'Arabic', level: 'native' },
       { name: 'French', level: 'fluent' },
       { name: 'English', level: 'professional working proficiency' },
-      { name: 'Arabic', level: 'native' },
     ],
     educationTitle: 'Education',
-    education: { title: 'BTS (2-year degree) in Computer Science & Multimedia', school: 'ENTIC, Gabès', year: '2021' },
+    education: { title: 'BTS (two-year higher national diploma) in Computer Science & Multimedia', school: 'ENTIC, Gabès', year: '2021' },
   },
 
   skills: {
     title: 'Skills',
     lead: 'Laravel and Vue.js at the core, with the databases, mobile and tooling that a production platform needs.',
     groups: [
-      { name: 'Backend', items: ['PHP', 'Laravel (v5–v13)', 'Symfony (v6 & v7)', 'REST APIs', 'MVC / HMVC', 'SOLID', 'Clean Architecture', 'Authentication & security'] },
-      { name: 'Frontend', items: ['Vue.js 2 & 3', 'Nuxt.js', 'Inertia.js', 'Livewire 3 & 4', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'Bootstrap', 'HTML5', 'CSS3'] },
-      {
-        name: 'Databases',
-        items: ['MySQL', 'MariaDB (including MariaDB Vector)', 'PostgreSQL (including pgvector)', 'SQLite', 'MongoDB', 'Redis', 'Multi-tenant architectures'],
-        note: 'Redis for caching, queues and sessions.',
-      },
+      { name: 'Backend', items: ['PHP', 'Laravel (v5–v13)', 'Filament', 'REST APIs', 'Clean Architecture', 'SOLID', 'MVC / HMVC', 'Authentication & security'] },
+      { name: 'Frontend', items: ['Vue.js 3', 'Nuxt', 'Inertia.js', 'Livewire', 'TypeScript', 'JavaScript', 'Tailwind CSS'] },
+      { name: 'Testing', items: ['PHPUnit', 'Pest', 'Unit & feature tests', 'Test pipelines in CI'] },
       {
         name: 'AI & LLM',
-        items: ['RAG', 'Embeddings', 'Semantic search', 'MCP servers (Model Context Protocol)'],
+        items: ['MCP servers & tools (Model Context Protocol)', 'RAG', 'Embeddings', 'Semantic search'],
         note: 'Semantic search on pgvector and MariaDB Vector.',
       },
-      { name: 'Mobile', items: ['Flutter'] },
       {
-        name: 'DevOps & tools',
-        items: ['Git (GitHub / GitLab)', 'Docker', 'GitHub Actions', 'Codemagic', 'Filament v3', 'Nginx', 'Apache', 'Linux', 'OVH', 'Ionos', 'Hostinger', 'Agile / Scrum', 'JIRA', 'ClickUp'],
+        name: 'Databases',
+        items: ['MySQL', 'MariaDB (incl. Vector)', 'PostgreSQL (incl. pgvector)', 'SQLite', 'Redis', 'Multi-tenant (database per tenant)'],
+        note: 'Redis for caching, queues and sessions.',
       },
+      { name: 'Mobile', items: ['Flutter (iOS & Android, published apps)', 'Firebase'] },
+      { name: 'DevOps', items: ['Git (GitHub / GitLab)', 'Docker', 'GitHub Actions', 'Codemagic', 'Nginx', 'Apache', 'Linux'] },
+      { name: 'Methods', items: ['Agile / Scrum', 'JIRA', 'Technical documentation'] },
       {
         name: 'AI-assisted development',
         items: ['Claude Code', 'Cursor', 'GitHub Copilot'],
-        note: 'Automated code review, testing and documentation.',
+        note: 'Code review, testing and documentation.',
       },
     ],
   },
@@ -131,7 +130,7 @@ export const en: Content = {
       },
       {
         ...sosProtech,
-        kind: 'Field service management for itSolve',
+        kind: 'Interventions & invoicing for itSolve',
         period: 'Aug 2023 – Dec 2023',
         summary: 'Platform for managing technical interventions, quotes, invoices and technician assignment.',
         points: [
@@ -151,9 +150,8 @@ export const en: Content = {
         summary: 'Ride-hailing management platform built end to end, while leading the team.',
         points: [
           'Real-time ride booking and dispatch',
-          'Driver, vehicle and billing management',
-          'Online payments and pricing',
-          'Team management, effort estimation and planning',
+          'Driver, vehicle and billing management, online payments and pricing',
+          'Led the team: effort estimation, planning and task distribution',
         ],
       },
     ],
@@ -161,7 +159,7 @@ export const en: Content = {
 
   experience: {
     title: 'Experience',
-    lead: 'From Gabès to Dammam, with two years freelancing for a company in Île-de-France: four roles since 2020.',
+    lead: 'From Gabès to Dammam, with two years freelancing for a company in Île-de-France, and Flync on the side since 2026.',
     placePrefix: 'in',
     items: [
       {
@@ -171,8 +169,21 @@ export const en: Content = {
         period: 'Sep 2025 – present',
         contract: 'Permanent',
         points: [
-          'Designed and built a multi-tenant business CRM with a separate database per client, from requirements analysis to deployment',
-          'Performance optimization and ongoing maintenance of the production system',
+          'Owned the design and development of the MCP server and MCP toolbox of a multi-tenant CRM (database per tenant) managing millions of customer records, exposing CRM data to AI agents through the Model Context Protocol',
+          'Built a Flutter mobile app: an AI assistant that answers managers’ business questions in natural language by querying the CRM through MCP and RAG',
+          'Wrote automated tests (PHPUnit / Pest) for every CRM feature; optimized performance and maintained the production system',
+        ],
+      },
+      {
+        ...jobMeta.flync,
+        role: 'Founder & Lead Developer',
+        place: 'Tunisia',
+        period: 'Mar 2026 – present',
+        contract: 'Personal project',
+        points: [
+          'Built and launched a food delivery platform: 3 Flutter apps (customer, restaurant, courier) published on the App Store and Google Play',
+          'Laravel backend in production: Flouci online payments, delivery zones, push notifications, real-time dashboard',
+          'Automated CI/CD for the mobile apps and the web platform (Codemagic, GitHub Actions)',
         ],
       },
       {
@@ -182,21 +193,21 @@ export const en: Content = {
         period: 'Sep 2024 – Aug 2025',
         contract: 'Fixed-term',
         points: [
-          'Contributed to the technical architecture and technology choices',
-          'Specialized platforms: LMS (training), HRIS (human resources) and a job portal',
-          'Worked with international engineering teams',
+          'Built three platforms for the institute: an LMS (training programs), an HRIS (human resources) and a job portal',
+          'Chose the architecture and stack (Laravel, Inertia.js, Vue.js) for the institute’s business platforms',
+          'Worked on-site with an international engineering team, from specifications to delivery',
         ],
       },
       {
         ...jobMeta.itSolve,
         role: 'Team Lead & Full-Stack Laravel Developer',
-        place: 'Île-de-France, France (remote)',
+        place: 'Île-de-France, France (remote from Gabès)',
         period: 'Aug 2022 – Aug 2024',
-        contract: 'Freelance',
+        contract: 'Freelance, long-term contract',
         note: 'Led a team of 4',
         points: [
-          'Jasmin Emballage: e-commerce, more than 10,000 orders, processing time cut by 40%',
-          'SOS Protech: field service management, Inertia.js SSR, +45% organic traffic',
+          'Jasmin Emballage: e-commerce, 10,000+ orders, order processing time cut by 40%',
+          'SOS Protech: interventions and invoicing, Inertia.js SSR, +45% organic traffic',
           'Préfev: ride-hailing platform, real-time booking and dispatch, team lead',
         ],
       },
@@ -207,9 +218,9 @@ export const en: Content = {
         period: 'Jul 2020 – Aug 2022',
         contract: 'Fixed-term',
         points: [
-          'Backend for delivery and messaging platforms',
+          'Backend development of delivery and messaging platforms',
           'Third-party API integrations (WhatsApp, Geidea payments)',
-          'Maintenance, API development and technical documentation',
+          'API development, ongoing maintenance and technical documentation',
         ],
       },
     ],

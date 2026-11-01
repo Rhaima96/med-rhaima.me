@@ -11,7 +11,7 @@ export const fr: Content = {
   ogImage: '/og.png',
   title: 'Mohamed Touhami Rhaima — Développeur Full-Stack Senior Laravel / Vue.js',
   description:
-    "Développeur Full-Stack Senior Laravel / Vue.js, 6+ ans d'expérience, contributeur au framework Laravel (recherche vectorielle MariaDB). CRM, LMS, e-commerce, VTC, applications Flutter.",
+    "Développeur Full-Stack Senior Laravel / Vue.js, 6+ ans d'expérience, contributeur au framework Laravel (recherche vectorielle MariaDB) et intégrations IA (MCP, RAG). CRM, LMS, e-commerce, VTC, applications Flutter.",
   jobTitle: 'Développeur Full-Stack Senior Laravel / Vue.js',
   cv: { href: '/CV_Mohamed_Touhami_Rhaima_FR.pdf', title: 'CV complet', detail: 'PDF, 2 pages', short: 'CV (PDF)' },
 
@@ -47,9 +47,9 @@ export const fr: Content = {
   about: {
     title: 'Six ans à livrer des plateformes métier',
     paragraphs: [
-      "Je conçois des architectures évolutives et des plateformes métier complexes : CRM multi-tenant, LMS, e-commerce, VTC. Je suis présent à chaque étape, de l'analyse des besoins aux choix techniques, puis au développement, à l'optimisation et au déploiement.",
-      "Depuis 2022, je travaille à distance avec des clients français et des équipes internationales, dont deux ans comme Team Lead d'une équipe de quatre développeurs.",
-      "En 2026, j'ai ajouté le support MariaDB à la recherche vectorielle de Laravel et étendu sa CI aux versions récentes de MariaDB. Je conçois aussi des fonctionnalités d'IA appliquée (RAG, serveurs MCP) et j'utilise Claude Code et Cursor pour fiabiliser la revue de code, les tests et la documentation.",
+      'Je conçois des plateformes métier, CRM, LMS, e-commerce, VTC, du cahier des charges à la mise en production.',
+      "Aujourd'hui, je développe des fonctionnalités d'IA pour un CRM multi-tenant qui gère des millions de fiches clients : le serveur MCP qui expose ses données aux agents IA, et une app Flutter d'assistant qui répond en langage naturel aux questions des managers.",
+      "En 2026, j'ai ajouté le support MariaDB à la recherche vectorielle de Laravel et étendu sa CI aux versions récentes de MariaDB. Depuis 2022, j'ai aussi travaillé à distance pour des clients français, dont deux ans comme Team Lead d'une équipe de quatre développeurs.",
     ],
     highlights: [
       { value: '6+', label: "ans d'expérience" },
@@ -58,39 +58,38 @@ export const fr: Content = {
     ],
     languagesTitle: 'Langues',
     languages: [
-      { name: 'Français', level: 'courant' },
-      { name: 'Anglais', level: 'bon niveau professionnel' },
       { name: 'Arabe', level: 'langue maternelle' },
+      { name: 'Français', level: 'courant' },
+      { name: 'Anglais', level: 'capacité professionnelle' },
     ],
     educationTitle: 'Formation',
-    education: { title: 'BTS Informatique & Multimédia', school: 'ENTIC, Gabès', year: '2021' },
+    education: { title: 'BTS (Brevet de technicien supérieur) en Informatique et multimédia', school: 'ENTIC, Gabès', year: '2021' },
   },
 
   skills: {
     title: 'Compétences',
     lead: 'Laravel et Vue.js au centre, avec les bases de données, le mobile et l’outillage qui vont avec une plateforme en production.',
     groups: [
-      { name: 'Backend', items: ['PHP', 'Laravel (v5–v13)', 'Symfony (v6 & v7)', 'REST APIs', 'MVC / HMVC', 'SOLID', 'Clean Architecture', 'Authentification & sécurité'] },
-      { name: 'Frontend', items: ['Vue.js 2 & 3', 'Nuxt.js', 'Inertia.js', 'Livewire 3 & 4', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'Bootstrap', 'HTML5', 'CSS3'] },
-      {
-        name: 'Bases de données',
-        items: ['MySQL', 'MariaDB (dont MariaDB Vector)', 'PostgreSQL (dont pgvector)', 'SQLite', 'MongoDB', 'Redis', 'Architectures multi-tenant'],
-        note: 'Redis pour le cache, les files d’attente et les sessions.',
-      },
+      { name: 'Backend', items: ['PHP', 'Laravel (v5–v13)', 'Filament', 'API REST', 'Clean Architecture', 'SOLID', 'MVC / HMVC', 'Authentification & sécurité'] },
+      { name: 'Frontend', items: ['Vue.js 3', 'Nuxt', 'Inertia.js', 'Livewire', 'TypeScript', 'JavaScript', 'Tailwind CSS'] },
+      { name: 'Tests', items: ['PHPUnit', 'Pest', 'Tests unitaires & fonctionnels', 'Pipelines de tests en CI'] },
       {
         name: 'IA & LLM',
-        items: ['RAG', 'Embeddings', 'Recherche sémantique', 'Serveurs MCP (Model Context Protocol)'],
+        items: ['Serveurs & outils MCP (Model Context Protocol)', 'RAG', 'Embeddings', 'Recherche sémantique'],
         note: 'Recherche sémantique sur pgvector et MariaDB Vector.',
       },
-      { name: 'Mobile', items: ['Flutter'] },
       {
-        name: 'DevOps & outils',
-        items: ['Git (GitHub / GitLab)', 'Docker', 'GitHub Actions', 'Codemagic', 'Filament v3', 'Nginx', 'Apache', 'Linux', 'OVH', 'Ionos', 'Hostinger', 'Agile / Scrum', 'JIRA', 'ClickUp'],
+        name: 'Bases de données',
+        items: ['MySQL', 'MariaDB (dont Vector)', 'PostgreSQL (dont pgvector)', 'SQLite', 'Redis', 'Multi-tenant (une base par client)'],
+        note: 'Redis pour le cache, les files d’attente et les sessions.',
       },
+      { name: 'Mobile', items: ['Flutter (iOS & Android, apps publiées)', 'Firebase'] },
+      { name: 'DevOps', items: ['Git (GitHub / GitLab)', 'Docker', 'GitHub Actions', 'Codemagic', 'Nginx', 'Apache', 'Linux'] },
+      { name: 'Méthodes', items: ['Agile / Scrum', 'JIRA', 'Documentation technique'] },
       {
         name: 'Développement assisté par IA',
         items: ['Claude Code', 'Cursor', 'GitHub Copilot'],
-        note: 'Automatisation de la revue de code, des tests et de la documentation.',
+        note: 'Revue de code, tests et documentation.',
       },
     ],
   },
@@ -133,10 +132,10 @@ export const fr: Content = {
         ...sosProtech,
         kind: 'Gestion d’interventions pour itSolve',
         period: 'Août 2023 – Déc. 2023',
-        summary: 'Plateforme de gestion des interventions techniques, devis, factures et affectation des techniciens.',
+        summary: 'Plateforme d’interventions et de facturation : interventions techniques, devis, factures et affectation des techniciens.',
         points: [
           'SSR avec Inertia.js',
-          'Rapports PDF avec signature numérique, tableaux de bord multi-rôles (Chart.js)',
+          'Rapports PDF avec signature électronique, tableaux de bord statistiques multi-rôles (Chart.js)',
           'Déploiement et optimisation de serveurs VPS (Ubuntu, Apache)',
         ],
         results: [
@@ -151,9 +150,8 @@ export const fr: Content = {
         summary: 'Plateforme de gestion VTC développée de bout en bout, avec la direction de l’équipe.',
         points: [
           'Réservation et dispatch des courses en temps réel',
-          'Gestion des chauffeurs, des véhicules et de la facturation',
-          'Paiement en ligne et tarification',
-          'Management d’équipe, estimation de charge et planification',
+          'Gestion des chauffeurs, des véhicules et de la facturation, paiements en ligne et tarification',
+          'Pilotage de l’équipe : estimation des charges, planification et répartition des tâches',
         ],
       },
     ],
@@ -161,7 +159,7 @@ export const fr: Content = {
 
   experience: {
     title: 'Parcours',
-    lead: 'De Gabès à Dammam, en passant par deux ans en freelance pour une société d’Île-de-France : quatre postes depuis 2020.',
+    lead: 'De Gabès à Dammam, en passant par deux ans en freelance pour une société d’Île-de-France, et Flync en parallèle depuis 2026.',
     placePrefix: 'à',
     items: [
       {
@@ -171,8 +169,21 @@ export const fr: Content = {
         period: 'Sept. 2025 – aujourd’hui',
         contract: 'CDI',
         points: [
-          'Conception et développement d’un CRM métier multi-tenant, avec une base de données distincte par client, de l’analyse des besoins jusqu’au déploiement',
-          'Optimisation des performances et maintenance continue du système en production',
+          'Conception et développement du serveur MCP et de la toolbox MCP d’un CRM multi-tenant (une base de données par client) qui gère des millions de fiches clients, pour exposer ses données aux agents IA via le Model Context Protocol',
+          'Développement d’une app mobile Flutter : un assistant IA qui répond en langage naturel aux questions métier des managers en interrogeant le CRM via MCP et RAG',
+          'Tests automatisés (PHPUnit / Pest) pour chaque fonctionnalité du CRM ; optimisation des performances et maintenance du système en production',
+        ],
+      },
+      {
+        ...jobMeta.flync,
+        role: 'Fondateur & Lead Developer',
+        place: 'Tunisie',
+        period: 'Mars 2026 – aujourd’hui',
+        contract: 'Projet personnel',
+        points: [
+          'Création et lancement d’une plateforme de livraison de repas : 3 apps Flutter (client, restaurant, livreur) publiées sur l’App Store et Google Play',
+          'Backend Laravel en production : paiement en ligne Flouci, zones de livraison, notifications push, tableau de bord en temps réel',
+          'CI/CD automatisée pour les apps mobiles et la plateforme web (Codemagic, GitHub Actions)',
         ],
       },
       {
@@ -182,22 +193,22 @@ export const fr: Content = {
         period: 'Sept. 2024 – Août 2025',
         contract: 'CDD',
         points: [
-          'Participation à l’architecture technique et aux choix technologiques',
-          'Plateformes spécialisées : LMS (formation), SIRH (ressources humaines) et portail d’emploi',
-          'Collaboration avec des équipes techniques internationales',
+          'Développement de trois plateformes pour l’institut : un LMS (programmes de formation), un SIRH (ressources humaines) et un portail d’emploi',
+          'Choix de l’architecture et de la stack (Laravel, Inertia.js, Vue.js) des plateformes métier de l’institut',
+          'Travail sur site avec une équipe d’ingénieurs internationale, de la spécification à la livraison',
         ],
       },
       {
         ...jobMeta.itSolve,
         role: 'Team Lead & Développeur Full-Stack Laravel',
-        place: 'Île-de-France, France (à distance)',
+        place: 'Île-de-France, France (à distance depuis Gabès)',
         period: 'Août 2022 – Août 2024',
-        contract: 'Freelance',
-        note: 'Management d’une équipe de 4',
+        contract: 'Freelance, mission longue durée',
+        note: 'Encadrement d’une équipe de 4',
         points: [
-          'Jasmin Emballage : e-commerce, plus de 10 000 commandes, temps de traitement réduit de 40 %',
-          'SOS Protech : gestion d’interventions, SSR Inertia.js, +45 % de trafic organique',
-          'Préfev : plateforme VTC, réservation et dispatch en temps réel, direction de l’équipe',
+          'Jasmin Emballage : e-commerce, plus de 10 000 commandes, temps de traitement des commandes réduit de 40 %',
+          'SOS Protech : interventions et facturation, SSR Inertia.js, +45 % de trafic organique',
+          'Préfev : plateforme VTC, réservation et dispatch en temps réel, pilotage de l’équipe',
         ],
       },
       {
@@ -207,9 +218,9 @@ export const fr: Content = {
         period: 'Juil. 2020 – Août 2022',
         contract: 'CDD',
         points: [
-          'Backend de plateformes de livraison et de messagerie',
-          'Intégration d’API tierces (WhatsApp, paiement Geidea)',
-          'Maintenance, développement d’API et documentation technique',
+          'Développement backend de plateformes de livraison et de messagerie',
+          'Intégrations d’API tierces (WhatsApp, paiements Geidea)',
+          'Développement d’API, maintenance continue et documentation technique',
         ],
       },
     ],

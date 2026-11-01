@@ -12,7 +12,7 @@ export const person = {
   phoneHref: 'tel:+21624836687',
   links: {
     github: 'https://github.com/Rhaima96',
-    linkedin: 'https://www.linkedin.com/in/mohamed-touhami-rhaima',
+    linkedin: 'https://www.linkedin.com/in/mohamed-touhami-rhaima-17812a1b6',
   },
 }
 
@@ -31,7 +31,7 @@ export const projectMeta = {
   },
   jasmin: {
     name: 'Jasmin Emballage',
-    stack: ['Laravel', 'Vue.js', 'REST API', 'Pusher', 'Ionos'],
+    stack: ['Laravel', 'Vue.js', 'REST API', 'Pusher'],
     url: 'https://jasminemballage.fr',
     urlLabel: 'jasminemballage.fr',
   },
@@ -45,8 +45,9 @@ export const projectMeta = {
 }
 
 export const jobMeta = {
-  ecg: { company: 'ECG Assurance', stack: ['Laravel', 'Vue.js', 'MySQL', 'Git', 'Agile'] },
-  blackGold: { company: 'Black Gold', stack: ['Laravel 10', 'Vue.js', 'Inertia.js', 'MySQL', 'Git'] },
+  ecg: { company: 'Groupe ECG Pereire Assurances', stack: ['Laravel', 'Vue.js', 'MySQL', 'MCP', 'RAG', 'Flutter', 'PHPUnit / Pest', 'Git', 'Agile'] },
+  flync: { company: 'Flync', stack: ['Flutter', 'Firebase', 'Laravel', 'Flouci', 'Codemagic', 'GitHub Actions'] },
+  blackGold: { company: 'Black Gold Training Institute', stack: ['Laravel 10', 'Vue.js', 'Inertia.js', 'MySQL', 'Git'] },
   itSolve: { company: 'itSolve', stack: ['Laravel', 'Vue.js', 'Inertia.js', 'Livewire', 'Tailwind CSS', 'MySQL'] },
   tmkiin: { company: 'TMKiiN', stack: ['Laravel', 'Vue.js', 'Flutter', 'Docker', 'HMVC', 'JIRA', 'GitLab'] },
 }
@@ -92,7 +93,7 @@ export const packageMeta = {
 export const vectorPoints: { label: string; angle: number; r: number }[] = [
   { label: 'Laravel', angle: -14, r: 0.84 },
   { label: 'PHP', angle: 2, r: 0.52 },
-  { label: 'Symfony', angle: -26, r: 0.6 },
+  { label: 'Filament', angle: -26, r: 0.6 },
   { label: 'REST APIs', angle: 12, r: 0.92 },
   { label: 'Livewire', angle: 28, r: 0.9 },
   { label: 'Inertia.js', angle: 40, r: 0.54 },
